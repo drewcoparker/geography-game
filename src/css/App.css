@@ -1,0 +1,9 @@
+ .btn-danger{
+   margin: 7px;
+ }
+ .navbar-header{
+   text-align: center;
+ }
+.active{
+	background-color: red !important;
+}
