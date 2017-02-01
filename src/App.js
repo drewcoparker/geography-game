@@ -1,15 +1,14 @@
 // Dependencies
 import React, { Component } from 'react';
 import './css/index.css';
-import _ from "lodash";
-import Questions from './Questions';
-import Data from './Data';
-import Navbar1 from './Navbar'
-import { Modal, Button } from 'react-bootstrap'
-
+// import _ from "lodash";
 
 // Custom Modules
 import MapController from './MapController.js';
+import Data from './Data';
+import Navbar1 from './Navbar'
+import Questions from './Questions';
+import ModalController from './ModalController';
 
 // Bootstrap
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -59,23 +58,23 @@ class App extends Component {
     handleInfoCloseClick() {
         this.setState({
             showInfo: false
-        })
+        });
     }
 
     // Changes the clue and map location on button click. This is the main hook
     // for us to advance the game to the next clue object in Data.js.
     handleInfoBtnClick(event) {
-          if (num < (Data.length - 1)) {
+        if (num < (Data.length - 1)) {
             num++;
             this.setState({
                 data: Data[num],
                 visibility: false,
                 showInfo: false
-            })
-          } else {
-              this.setState({
-                  showModal: true
-              })
+            });
+        } else {
+            this.setState({
+                showModal: true
+            });
         }
     }
 
@@ -85,11 +84,11 @@ class App extends Component {
         if (this.state.showInfo === false) {
             this.setState({
                 showInfo: true
-            })
+            });
         } else {
             this.setState({
                 showInfo: false
-            })
+            });
         }
     }
 
@@ -97,31 +96,30 @@ class App extends Component {
     // The game is effectively reset.
     handleModalButtonClick(event){
         num = 0;
-      this.setState({
-        data: Data[0],
-        visibility: false,
-        showInfo: false,
-        showModal: false
-      })
-
+        this.setState({
+            data: Data[0],
+            visibility: false,
+            showInfo: false,
+            showModal: false
+        });
     }
 
     // Changes the visibility of the marker at desired zoom level. A condtional
     // is set based on the user's zoom level. If the zoom level is greater than
     // the revealMarkerZoom property in the Data object, the marker will show.
     // If less, it will hide.
-      handleZoomChange() {
-          const zoomLevel = this._mapComponent.getZoom();
-          if (zoomLevel >= this.state.data.revealMarkerZoom) {
-              this.setState({
-                  visibility: true,
-              })
-          } else {
-              this.setState({
-                  visibility: false
-              })
-          }
-      }
+    handleZoomChange() {
+        const zoomLevel = this._mapComponent.getZoom();
+        if (zoomLevel >= this.state.data.revealMarkerZoom) {
+            this.setState({
+                visibility: true,
+            });
+        } else {
+            this.setState({
+                visibility: false
+            });
+        }
+    }
 
     // Renders the app
     render() {
@@ -129,47 +127,24 @@ class App extends Component {
             <div className="app-wrapper">
                 <Navbar1 />
 
-                    <Modal show={this.state.showModal}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Congratulations! You've won the game!</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <div><img alt="" id="shia" src="https://media.giphy.com/media/7rj2ZgttvgomY/giphy.gif"/></div>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button onClick={this.handleModalButtonClick}>Reset Game</Button>
-                        </Modal.Footer>
-                    </Modal>
+                <ModalController    modalVisibility={this.state.showModal}
+                                    onModalBtnClick={this.handleModalButtonClick} />
 
-                <div className="container">
-                    <div className="row col-sm-12">
-                        <MapController
-                            containerElement={
-                              <div style={{
-                                      height: `50vh`,
-                                      margin: `20px`,
-                                      boxShadow: `0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28)`,
-                                  }} />
-                            }
-                            mapElement={
-                              <div style={{
-                                      height: `50vh`,
-                                  }} />
-                            }
-                          onMapLoad={this.handleMapLoad}
-                          onMarkerClick={this.handleMarkerClick}
-                          onMapZoom={this.handleZoomChange}
-                          mapProps={this.state.data.mapOptions}
-                          markerProps={this.state.data.markerOptions}
-                          markerVisibility={this.state.visibility}
-                          infoVisibility={this.state.showInfo}
-                          infoText={this.state.data.answer}
-                          onInfoBtnClick={this.handleInfoBtnClick}
-                          onInfoCloseClick={this.handleInfoCloseClick}
-                        />
-                    </div>
-                </div>
-                <Questions greeting={this.state.data.greeting} question={this.state.data.question} />
+                <MapController  containerElement={<div className="map-container"></div>}
+                                mapElement={<div className="map-element"></div>}
+                                onMapLoad={this.handleMapLoad}
+                                onMarkerClick={this.handleMarkerClick}
+                                onMapZoom={this.handleZoomChange}
+                                mapProps={this.state.data.mapOptions}
+                                markerProps={this.state.data.markerOptions}
+                                markerVisibility={this.state.visibility}
+                                infoVisibility={this.state.showInfo}
+                                infoText={this.state.data.answer}
+                                onInfoBtnClick={this.handleInfoBtnClick}
+                                onInfoCloseClick={this.handleInfoCloseClick} />
+
+                <Questions      greeting={this.state.data.greeting}
+                                question={this.state.data.question} />
             </div>
         );
     }

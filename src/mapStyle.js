@@ -1,81 +1,63 @@
 // These styling elements give our map the look we want
 
 module.exports = [
-  {
-        "featureType": "administrative",
-        "elementType": "all",
+    {
+        "featureType": "landscape.natural",
+        "elementType": "geometry.fill",
         "stylers": [
             {
                 "visibility": "on"
             },
             {
-                "lightness": 33
+                "color": "#e0efef"
             }
         ]
     },
     {
-        "featureType": "landscape",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#f2e5d4"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.park",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#c5dac6"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.park",
-        "elementType": "labels",
+        "featureType": "poi",
+        "elementType": "geometry.fill",
         "stylers": [
             {
                 "visibility": "on"
             },
             {
-                "lightness": -10
+                "hue": "#1900ff"
+            },
+            {
+                "color": "#c0e8e8"
             }
         ]
     },
     {
         "featureType": "road",
-        "elementType": "all",
+        "elementType": "geometry",
         "stylers": [
             {
-                "lightness": 20
+                "lightness": 100
+            },
+            {
+                "visibility": "simplified"
             }
         ]
     },
     {
-        "featureType": "road.highway",
-        "elementType": "geometry",
+        "featureType": "road",
+        "elementType": "labels",
         "stylers": [
             {
-                "color": "#c5c6c6"
+                "visibility": "off"
             }
         ]
     },
     {
-        "featureType": "road.arterial",
+        "featureType": "transit.line",
         "elementType": "geometry",
         "stylers": [
             {
-                "color": "#e4d7c6"
-            }
-        ]
-    },
-    {
-        "featureType": "road.local",
-        "elementType": "geometry",
-        "stylers": [
+                "visibility": "on"
+            },
             {
-                "color": "#fbfaf7"
+                "lightness": 700
             }
         ]
     },
@@ -84,10 +66,7 @@ module.exports = [
         "elementType": "all",
         "stylers": [
             {
-                "visibility": "on"
-            },
-            {
-                "color": "#acbcc9"
+                "color": "#7dcdcd"
             }
         ]
     }
