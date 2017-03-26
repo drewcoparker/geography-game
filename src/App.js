@@ -127,24 +127,27 @@ class App extends Component {
             <div className="app-wrapper">
                 <Navbar1 />
 
-                <ModalController    modalVisibility={this.state.showModal}
-                                    onModalBtnClick={this.handleModalButtonClick} />
+                <ModalController
+                    modalVisibility={this.state.showModal}
+                    onModalBtnClick={this.handleModalButtonClick} />
 
-                <MapController  containerElement={<div className="map-container"></div>}
-                                mapElement={<div className="map-element"></div>}
-                                onMapLoad={this.handleMapLoad}
-                                onMarkerClick={this.handleMarkerClick}
-                                onMapZoom={this.handleZoomChange}
-                                mapProps={this.state.data.mapOptions}
-                                markerProps={this.state.data.markerOptions}
-                                markerVisibility={this.state.visibility}
-                                infoVisibility={this.state.showInfo}
-                                infoText={this.state.data.answer}
-                                onInfoBtnClick={this.handleInfoBtnClick}
-                                onInfoCloseClick={this.handleInfoCloseClick} />
+                <MapController
+                    containerElement={<div className="map-container"></div>}
+                    mapElement={<div className="map-element"></div>}
+                    onMapLoad={this.handleMapLoad}
+                    onMarkerClick={this.handleMarkerClick}
+                    onMapZoom={this.handleZoomChange}
+                    mapProps={this.state.data.mapOptions}
+                    markerProps={this.state.data.markerOptions}
+                    markerVisibility={this.state.visibility}
+                    infoVisibility={this.state.showInfo}
+                    infoText={this.state.data.answer}
+                    onInfoBtnClick={this.handleInfoBtnClick}
+                    onInfoCloseClick={this.handleInfoCloseClick} />
 
-                <Questions      greeting={this.state.data.greeting}
-                                question={this.state.data.question} />
+                <Questions
+                    greeting={this.state.data.greeting}
+                    question={this.state.data.question} />
             </div>
         );
     }
