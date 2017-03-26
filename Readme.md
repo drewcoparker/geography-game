@@ -1,9 +1,9 @@
-# A Geography Game - That will give you the skills
+## Geography Quiz using Google Maps
 
-# About:
+## About:
 This is a geography game where you are asked a question and then you have to locate the answer (in the form of a marker) on the map. The catch is that the marker does not appear until you zoom into a specific level of the map. Once you locate the marker you can click on it. An info window will appear letting you know the name of the location you have found. You can then click the button within the info window to progress through the game.
 
-# Technology Used:
+## Technology Used:
 - HTML5
 - CSS3
 - JavaScript
@@ -12,7 +12,7 @@ This is a geography game where you are asked a question and then you have to loc
 - NPM packages for React-Google-Maps, React-Router, React-Bootstrap
 - Google Maps API
 
-# Challenges:
+## Challenges:
 1. Using the Google Maps API with the NPM Package "React-Google-Maps" to successfully get a map rendered onto the screen.
 2. Manipulating the Google Maps API to accomplish things like:
 	1. Changing visibility of markers based on zoom level.
@@ -22,18 +22,18 @@ This is a geography game where you are asked a question and then you have to loc
 3. Using React-Router to make our NavBar a have single page links.
 4. Styling the map while using React and React-Google-Maps.
 
-# Authors
+## Authors
 * [Drew "Wizard Island" Parker](https://github.com/drewcoparker)
 * [Michael "I didn't want that job anyway" Irby](https://github.com/optipwr)
 * [Kyle "Blob/Scrum Master" Plaugher](https://github.com/Kaplaugher)
 * [Sean "Mark J Base" Bhupathi](https://github.com/seanbhup)
 
-# Future Installments:
+## Future Installments:
 - Points based system
 - Expand to other regions (Asia, Europe, etc.)
 - Add additional clues to the game
 
-# Code Examples
+## Code Examples
 Snippet of some map zoom logic.
 
 ```javascript
@@ -91,7 +91,7 @@ An example of an Object in our Data Array.
 },
 ```
 
-# Screenshots
+## Screenshots
 Homescreen when you first start out
 ![alt text](https://github.com/optipwr/Geography-Game/blob/master/screenshots/Homescreen.png 'Homescreen.png')
 
