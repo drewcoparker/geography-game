@@ -9,8 +9,8 @@ import Instructions from './Instructions';
 // Routing location
 ReactDOM.render(
 	<Router history={hashHistory}>
-		<Route path="play" component={App} />
-		<Route path="/" component={Instructions} />
+		<Route path="/" component={App} />
+		<Route path="/instructions" component={Instructions} />
 	</Router>,
 	document.getElementById('root')
 );

@@ -28,26 +28,29 @@ import {Button} from 'react-bootstrap';
 //    question in the Data module and the map and marker will render with new
 //    location props.
 const MapController = withGoogleMap(props => (
-    
-    <GoogleMap  ref={props.onMapLoad}
-                options={props.mapProps}
-                onZoomChanged={props.onMapZoom}>
 
-        <Marker visible={props.markerVisibility}
-                options={props.markerProps}
-                onClick={props.onMarkerClick}>
+    <GoogleMap
+        ref={props.onMapLoad}
+        options={props.mapProps}
+        onZoomChanged={props.onMapZoom}>
 
-                {props.infoVisibility && (
-                    <InfoWindow onCloseClick={props.onInfoCloseClick}>
-                                <div style={{textAlign: 'center'}}>
-                                    <p>Nice job! The answer is {props.infoText}.</p>
-                                    <Button bsStyle="info"
-                                            bsSize="small"
-                                            onClick={props.onInfoBtnClick}>Next Clue
-                                    </Button>
-                                </div>
-                    </InfoWindow>
-                )}
+        <Marker
+            visible={props.markerVisibility}
+            options={props.markerProps}
+            onClick={props.onMarkerClick}>
+
+            {props.infoVisibility && (
+                <InfoWindow onCloseClick={props.onInfoCloseClick}>
+                    <div style={{textAlign: 'center'}}>
+                        <p>Nice job! The answer is {props.infoText}.</p>
+                        <Button
+                            bsStyle="info"
+                            bsSize="small"
+                            onClick={props.onInfoBtnClick}>Next Clue
+                        </Button>
+                    </div>
+                </InfoWindow>
+            )}
         </Marker>
     </GoogleMap>
 ));
